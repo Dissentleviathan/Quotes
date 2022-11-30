@@ -7,6 +7,12 @@ public class RetroServer {
     private static Retrofit retro;
 
     public static Retrofit connectRetrofit(){
-    
+    if (retro == null){
+        retro = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(Gson)
+                .build();
+        }
+    return retro;
     }
 }
